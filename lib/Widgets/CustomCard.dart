@@ -8,6 +8,7 @@ class CustomCard extends StatefulWidget {
   final String imgPath;
   final List<CartItem> cartItem;
   final void Function(CartItem) addToCart;
+  final void Function(CartItem) removeCart;
 
   CustomCard({
     required this.name,
@@ -16,6 +17,7 @@ class CustomCard extends StatefulWidget {
     required this.imgPath,
     required this.cartItem,
     required this.addToCart,
+    required this.removeCart,
   });
 
   @override
@@ -23,6 +25,7 @@ class CustomCard extends StatefulWidget {
 }
 
 class _CustomCardState extends State<CustomCard> {
+  bool isCarted = false;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -97,6 +100,7 @@ class _CustomCardState extends State<CustomCard> {
                     right: 7,
                     child: Container(
                       decoration: BoxDecoration(
+                        color: isCarted ? Colors.amber : Colors.white,
                         border: Border.all(
                           color: Color(0xFFFDAD00),
                           width: 1.0,
@@ -108,15 +112,34 @@ class _CustomCardState extends State<CustomCard> {
                         padding: const EdgeInsets.all(4.0),
                         child: InkWell(
                           onTap: () {
-                            widget.addToCart(CartItem(
-                                name: widget.name,
-                                quantity: 1,
-                                price: widget.price,
-                                typeShoe: widget.typeShoe,
-                                imgPath: widget.imgPath));
+                            if (!isCarted) {
+                              widget.addToCart(CartItem(
+                                  name: widget.name,
+                                  quantity: 1,
+                                  price: widget.price,
+                                  typeShoe: widget.typeShoe,
+                                  imgPath: widget.imgPath));
+                              setState(() {
+                                isCarted = true;
+                                print("Cart added");
+                              });
+                            } else {
+                              widget.removeCart(CartItem(
+                                  name: widget.name,
+                                  quantity: 1,
+                                  price: widget.price,
+                                  typeShoe: widget.typeShoe,
+                                  imgPath: widget.imgPath));
+                              setState(() {
+                                isCarted = false;
+                                print("Cart removed");
+                              });
+                            }
                           },
-                          child: Image.asset(
-                              'assets/images/solar_cart-5-linear.png'),
+                          child: !isCarted
+                              ? Image.asset(
+                                  'assets/images/solar_cart-5-linear.png')
+                              : Image.asset('assets/images/bookCart.png'),
                         ),
                       ),
                     ),

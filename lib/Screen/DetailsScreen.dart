@@ -104,10 +104,10 @@ class Details extends StatelessWidget {
                   Text(
                     // -------------Here allowing only 13 character in name of the product-----
 
-                    name.length <= 12 ? name : name.substring(0, 12),
+                    name,
 
                     style: TextStyle(
-                      fontSize: 32,
+                      fontSize: 28,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -139,7 +139,7 @@ class Details extends StatelessWidget {
           // -------------------------description part----------------------------------
           Text(
             description,
-            maxLines: 3,
+            maxLines: 4,
             style: TextStyle(
               fontSize: 16,
               color: Color(0xFF929292),

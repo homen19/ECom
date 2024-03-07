@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shoeshop/Screen/DetailsScreen.dart';
 import 'package:shoeshop/Screen/HomeScreen.dart';
-import 'package:shoeshop/Widgets/CustomCard.dart';
 
 class Cart extends StatefulWidget {
   final List<CartItem> cartItems;
@@ -274,7 +272,13 @@ class _CartState extends State<Cart> {
                       ),
                     ),
                     onPressed: () {},
-                    child: Text("APPLY"),
+                    child: Text(
+                      "APPLY",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
                   ),
                 ),
               ],
@@ -326,12 +330,16 @@ class _CartState extends State<Cart> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFFFDAD00),
                 foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
               ),
               onPressed: () {},
               child: Text(
                 "CHECKOUT",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
+                  fontSize: 18,
                 ),
               ),
             ),

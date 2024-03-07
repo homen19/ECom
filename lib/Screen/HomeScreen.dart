@@ -38,6 +38,12 @@ class HomeState extends State<Home> {
     });
   }
 
+  void removeCart(CartItem itemToRemove) {
+    setState(() {
+      cartItems.removeWhere((item) => item.name == itemToRemove.name);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -222,6 +228,7 @@ class HomeState extends State<Home> {
                   imgPath: imgPath,
                   cartItem: cartItems,
                   addToCart: addToCart,
+                  removeCart: removeCart,
                 ),
               ),
             );

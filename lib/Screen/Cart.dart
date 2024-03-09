@@ -10,6 +10,25 @@ class Cart extends StatefulWidget {
 }
 
 class _CartState extends State<Cart> {
+  double totalPayable = 0;
+  void initState() {
+    super.initState();
+    calculateTotalPayable();
+  }
+
+  void calculateTotalPayable() {
+    double total = 0;
+    for (var cartItem in widget.cartItems) {
+      var prices = double.parse(cartItem.price);
+      var quantities = cartItem.quantity;
+      var result = prices * quantities;
+      total += result;
+    }
+    setState(() {
+      totalPayable = total;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,7 +118,11 @@ class _CartState extends State<Cart> {
                 child: ListView.builder(
                   itemCount: widget.cartItems.length,
                   itemBuilder: (context, index) {
-                    final cartItem = widget.cartItems[index];
+                    var cartItem = widget.cartItems[index];
+                    var prices = double.parse(cartItem.price);
+                    var quantities = cartItem.quantity;
+                    var result = prices * quantities;
+
                     return Center(
                       child: Padding(
                         padding: const EdgeInsets.only(top: 8.0),
@@ -137,7 +160,7 @@ class _CartState extends State<Cart> {
                                           ),
                                         ),
                                         Text(
-                                          "\$${cartItem.price}",
+                                          "\$${result}",
                                           style: const TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold,
@@ -171,6 +194,7 @@ class _CartState extends State<Cart> {
                                                           1) {
                                                         cartItem.quantity -= 1;
                                                       }
+                                                      calculateTotalPayable();
                                                     });
                                                   },
                                                   child: Icon(Icons.remove),
@@ -190,6 +214,7 @@ class _CartState extends State<Cart> {
                                                           10) {
                                                         cartItem.quantity += 1;
                                                       }
+                                                      calculateTotalPayable();
                                                     });
                                                   },
                                                   child: Icon(Icons.add),
@@ -309,14 +334,14 @@ class _CartState extends State<Cart> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Total Payable',
+                    "Total Payable",
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black.withOpacity(0.4),
                     ),
                   ),
-                  const Text(
-                    "\$1115.00",
+                  Text(
+                    "\$$totalPayable",
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,

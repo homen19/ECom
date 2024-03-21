@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 List<Map<String, dynamic>> myList = [
   {
     'name': 'Nike Alpha OX',
@@ -43,5 +45,31 @@ List<Map<String, dynamic>> myList = [
     'description':
         "These men's running shoes feature an adidas Primeknit upper that adapts to the changing shape of your foot as you run. Responsive midsole cushioning and a flexible outsole deliver a smooth and energized ride.",
     'rating': '220',
+  },
+];
+
+List<Map<String, dynamic>> checkOut = [
+  {
+    "title": "Master Card",
+    "cardNo": "1234 5678  9101 1234",
+    "image": "assets/images/masterCard.png",
+  },
+  {
+    "title": "Visa Card",
+    "cardNo": "1234 5678  9101 1234",
+    "image": "assets/images/visa.png",
+  },
+];
+
+List<Map<String, dynamic>> shippingAddress = [
+  {
+    "title": "My Home",
+    "address": "20/3 Level, Estern housing, UK 1205",
+    "icon": Icons.home,
+  },
+  {
+    "title": "Office",
+    "address": "20/3 Level, Estern housing, UK 1205",
+    "icon": Icons.business,
   },
 ];

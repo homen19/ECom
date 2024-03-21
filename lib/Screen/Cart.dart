@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoeshop/Screen/Checkout.dart';
 import 'package:shoeshop/Screen/HomeScreen.dart';
 
 class Cart extends StatefulWidget {
@@ -359,8 +360,11 @@ class _CartState extends State<Cart> {
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
-              onPressed: () {},
-              child: Text(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Checkout()));
+              },
+              child: const Text(
                 "CHECKOUT",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,

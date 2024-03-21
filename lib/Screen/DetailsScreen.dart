@@ -187,7 +187,7 @@ class Details extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.zero,
                       shape: const CircleBorder(),
-                      primary: Color(0xFF005E9F), // Color of the button
+                      backgroundColor: Color(0xFF005E9F), // Color of the button
                     ),
                     child: Text(""), // Icon or any other child widget
                   ),
@@ -214,7 +214,7 @@ class Details extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.zero,
                       shape: const CircleBorder(),
-                      primary: Color(0xFFFFCE00), // Color of the button
+                      backgroundColor: Color(0xFFFFCE00), // Color of the button
                     ),
                     child: Text(""), // Icon or any other child widget
                   ),
@@ -241,7 +241,7 @@ class Details extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.zero,
                       shape: const CircleBorder(),
-                      primary: Color(0xFFFDAD00), // Color of the button
+                      backgroundColor: Color(0xFFFDAD00), // Color of the button
                     ),
                     child: Text(""), // Icon or any other child widget
                   ),
@@ -268,7 +268,7 @@ class Details extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.zero,
                       shape: const CircleBorder(),
-                      primary: Color(0xFF28211D), // Color of the button
+                      backgroundColor: Color(0xFF28211D), // Color of the button
                     ),
                     child: Text(""), // Icon or any other child widget
                   ),
@@ -295,7 +295,7 @@ class Details extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.zero,
                       shape: const CircleBorder(),
-                      primary: Color(0xFFE8E9EA), // Color of the button
+                      backgroundColor: Color(0xFFE8E9EA), // Color of the button
                     ),
                     child: Text(""), // Icon or any other child widget
                   ),
@@ -495,7 +495,7 @@ class Details extends StatelessWidget {
             child: Container(
               width: 40,
               decoration: BoxDecoration(
-                color: const Color(0xFFFDAD00),
+                color:  Color(0xFFFDAD00),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
